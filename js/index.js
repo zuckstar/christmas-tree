@@ -229,8 +229,8 @@ function loadAudio(i) {
   const loader = new THREE.AudioLoader();
   loader.load(file, function (buffer) {
     audio.setBuffer(buffer);
+    audio.setLoop(true);
     audio.play();
-    audio.loop = true;
     analyser = new THREE.AudioAnalyser(audio, fftSize);
     init();
   });
