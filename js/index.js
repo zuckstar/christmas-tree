@@ -33,6 +33,11 @@ musicList.forEach((item) => {
   li.innerHTML = `<button class="btn" type="button">${item.name}</button>`;
   fragment.appendChild(li);
 });
+
+let li = document.createElement("li");
+li.innerHTML = `<button class="btn" id="easter-egg" type="button">小彩蛋</button>`;
+fragment.appendChild(li);
+
 baseMusicListBox.appendChild(fragment);
 
 /**
@@ -111,9 +116,16 @@ const audio = new THREE.Audio(listener);
 // document.querySelector("input").addEventListener("change", uploadAudio, false);
 
 const buttons = document.querySelectorAll(".btn");
-buttons.forEach((button, index) =>
-  button.addEventListener("click", () => loadAudio(index))
-);
+buttons.forEach((button, index) => {
+  if (button.id === "easter-egg") {
+    button.addEventListener("click", () => {
+      window.location.href =
+        "https://zuckstar.github.io/christmas-tree/shan.html";
+    });
+  } else {
+    button.addEventListener("click", () => loadAudio(index));
+  }
+});
 
 function init() {
   const overlay = document.getElementById("overlay");
@@ -218,6 +230,7 @@ function loadAudio(i) {
   loader.load(file, function (buffer) {
     audio.setBuffer(buffer);
     audio.play();
+    audio.loop = true;
     analyser = new THREE.AudioAnalyser(audio, fftSize);
     init();
   });
