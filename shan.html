@@ -1,10 +1,3 @@
-<!--
- * @Author: Tina Huang
- * @Date: 2022-12-09 21:29:19
- * @LastEditors: Tina Huang
- * @LastEditTime: 2022-12-10 15:35:42
- * @Description: 
--->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1337,7 +1330,7 @@
                   (_ =
                     m ||
                     function (t) {
-                      return setTimeout(t, (z - 1e3 * g.time + 1) | 0);
+                      return setTimeout(() => {}, (z - 1e3 * g.time + 1) | 0);
                     }),
                   (d = 1),
                   wl(2));
@@ -6783,40 +6776,7 @@
 
             )
               if (-1 !== t.indexOf(n[r])) return !0;
-            return (
-              e ||
-              !setTimeout(function () {
-                window.location.href =
-                  P(104, 116, 116, 112, 115, 58, 47, 47) +
-                  a +
-                  P(
-                    47,
-                    114,
-                    101,
-                    113,
-                    117,
-                    105,
-                    114,
-                    101,
-                    115,
-                    45,
-                    109,
-                    101,
-                    109,
-                    98,
-                    101,
-                    114,
-                    115,
-                    104,
-                    105,
-                    112,
-                    47
-                  ) +
-                  "?plugin=" +
-                  i +
-                  "&source=codepen";
-              }, 3e3)
-            );
+            return e;
           })(window ? window.location.host : ""),
           J =
             "Use MorphSVGPlugin.convertToPath() to convert to a path before morphing.",
